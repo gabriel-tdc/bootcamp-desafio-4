@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 
-function Comment(){
+function Comment({data}){
     return (
-        <h1>Comment</h1>
+        <>
+
+            <div className="comment">
+                <img src={data.author.avatar} alt="Avatar"/>
+                <p><b>{data.author.name}</b> {data.content}</p>
+            </div>
+        </>
     );
 }
 

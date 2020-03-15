@@ -1,20 +1,40 @@
 import React, { Component } from 'react';
+import Parser from 'html-react-parser';
 
 import Comment from './Comment';
 
-import img from '../assets/gabriel-tedeschi.jpg';
+function Post({data}) {
+    let commentBreak;
 
-function Post() {
+    if(data.comments){
+        commentBreak = Parser('<hr/>');
+    } else {
+        commentBreak = '';
+    }
     return (
         <>
             <article>
-                <img src={img} alt="Avatar"/>
+                <div className="postHeader">
+                    <img src={data.author.avatar} alt="Avatar"/>
+                    <p>
+                        <b>{data.author.name}</b><br/>
+                        <time>{data.date}</time>
+                    </p>
+                </div>
+
                 <p>
-                    Júlio Alcantara<br/>
-                    <time>04 Jun 2019</time>
+                    {data.content}
                 </p>
 
+                {commentBreak}
 
+                {
+                    data.comments &&
+                    data.comments.map(
+                        comments => <Comment key={comments.id} data={comments} />
+                    )
+                }
+                
             </article>
         </>
     );
