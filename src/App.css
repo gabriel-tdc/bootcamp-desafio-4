@@ -9,6 +9,10 @@ body {
     font-family: Roboto;
 }
 
+.content{
+    padding: 0 15px;
+}
+
 /* Header  */
 
 header {
@@ -47,10 +51,6 @@ article{
     color:#505050;
 }
 
-article > p {
-    margin-top: 0px;
-}
-
 article img{
     width: 32px;
     height: 32px;
@@ -63,6 +63,10 @@ article img{
     align-items: center;
     font-size: 14px;
     line-height: 14px;
+}
+
+.postHeader p{
+    margin: 0;
 }
 
 time{
